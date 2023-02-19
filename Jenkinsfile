@@ -56,5 +56,11 @@ pipeline {
                 sh "mvn clean install"
             }
         }
+        
+        stage("Artifact checkup") {
+           steps {
+             sh "ls -ltr /var/lib/jenkins/.m2/repository/com/souvc/springboot/spring-boot-sample-hello/1.0-SNAPSHOT "
+           }
+        }
     }
  }
