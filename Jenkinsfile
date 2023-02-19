@@ -53,7 +53,7 @@ pipeline {
                 branch 'develop'
             }
             steps {
-                sh "mvn tomcat7:deploy"
+                sh "mvn clean install"
             }
         }
     }
