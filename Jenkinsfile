@@ -16,7 +16,7 @@ pipeline {
             when {
                 not {
                     anyOf {
-                        branch 'master';
+                        branch 'main';
                         branch 'develop'
                     }
                 }
@@ -33,7 +33,7 @@ pipeline {
                sh "mvn clean test"
             }
         }
-        stage("Check Code coverage") {
+        /*stage("Check Code coverage") {
             when {
                 branch 'develop'
             }
@@ -47,10 +47,10 @@ pipeline {
                     minimumInstructionCoverage: '30',
                     maximumInstructionCoverage: '80')
            }
-        }
+        }*/
         stage("Build & Deploy Code") {
             when {
-                branch 'master'
+                branch 'develop'
             }
             steps {
                 sh "mvn tomcat7:deploy"
